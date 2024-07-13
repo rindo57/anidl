@@ -9,7 +9,7 @@ from main.inline import button1
 def trim_title(title: str):
     title = title.rsplit(' ', 1)[0]
     title = title.replace("[Magnet] ", "")
-    title = f"{title} [1080p][Multiple Subtitle]"
+    title = f"{title} [Erai-raws]"
     title = title.replace("- Ouji no Kikan", "S2")
     title = title.replace("Mahou Tsukai no Yome Season 2 Cour 2", "Mahou Tsukai no Yome Season 2 Part 2")
     title = title.replace("NieR:Automata Ver1.1a Part 2", "NieR Automata Ver1_1a Season 2")
@@ -24,6 +24,14 @@ def trim_title(title: str):
     title = title + ext
     return title
 
+def trim_titlex(title: str):
+    title = title.rsplit(' ', 1)[0]
+    title = title.replace("[SubsPlease] ", "")
+    title = title.replace(" (1080p) ", "")
+    title = f"{title} [SubsPlease]"
+    ext = ".mkv"
+    title = title + ext
+    return title
 def multi_sub(title: str):
     subtitle = title.split()[-1] 
     return subtitle
@@ -47,8 +55,10 @@ def parse():
     for i in ny:
         
         item['title'] = trim_titlex(i['title'])        
+        item['subtitle'] = "us"
         item['size'] = i['nyaa_size']   
         item['link'] = "magnet:?xt=urn:btih:" + i['nyaa_infohash']
+        item['480p'] = '0'
         data.append(item)
     return data
 
