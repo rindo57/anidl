@@ -174,11 +174,12 @@ async def start_uploading(data):
             DATABASE_ID = -1001895203720
             bin_id = -1002062055380
             name = name.replace(f" [AniDL].","").replace(ext,"").strip()
-            id, img, tit = await get_anime_img(get_anime_name(title))
+            zumba = title.replace("S2", "Season 2")
+            id, img, tit = await get_anime_img(get_anime_name(zumba))
             msg = await app.send_photo(bin_id,photo=img,caption=title)
 
             print("Downloading --> ",name)
-            img, alink = await get_anilist_data(title)
+            img, alink = await get_anilist_data(zumba)
             await asyncio.sleep(5)
             await status.edit(await status_text(f"Downloading {name}"),reply_markup=button1)
             file = await downloader(msg,link,size,title)
