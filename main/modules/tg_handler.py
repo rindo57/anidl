@@ -363,8 +363,8 @@ async def start_uploading(data):
             subtitle = subtitle.replace("]", "")     
     
             os.rename(file,"video.mkv")
-            titlx = title.replace('[Erai-raws]', '[Web][480p x265 10Bit][Opus][Erai-raws]')
-            titlx = titlx.replace('[SubsPlease]', '[Web][480p x265 10Bit][Opus][SubsPlease]')
+            titlx = title.replace('[Erai-raws]', '[Web][720p x265 10Bit][Opus][Erai-raws]')
+            titlx = titlx.replace('[SubsPlease]', '[Web][720p x265 10Bit][Opus][SubsPlease]')
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
             main = await app.send_photo(KAYO_ID,photo=img, caption=titm)
@@ -394,8 +394,8 @@ async def start_uploading(data):
 #1080p 
 
             msg3 = await app.send_photo(bin_id,photo=img,caption=title)
-            titlx3 = title.replace('[Erai-raws]', '[Web][480p x265 10Bit][Opus][Erai-raws]')
-            titlx3 = titlx3.replace('[SubsPlease]', '[Web][480p x265 10Bit][Opus][SubsPlease]')
+            titlx3 = title.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
+            titlx3 = titlx3.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
             
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
@@ -483,8 +483,8 @@ async def start_uploading(data):
             subtitle = subtitle.replace("]", "")     
     
             os.rename(file,"video.mkv")
-            titlx = title.replace('[Erai-raws]', '[Web][480p x265 10Bit][Opus][Erai-raws]')
-            titlx = titlx.replace('[SubsPlease]', '[Web][480p x265 10Bit][Opus][SubsPlease]')
+            titlx = title.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
+            titlx = titlx.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
             main = await app.send_photo(KAYO_ID,photo=img, caption=titm)
