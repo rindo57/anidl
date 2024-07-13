@@ -43,7 +43,7 @@ def parse():
     c = ny["entries"]
     
     data = []    
-    data.reverse()
+    
     for i in b:
         item = {}
         item['title'] = trim_title(i['title'])
@@ -52,6 +52,7 @@ def parse():
         item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
         item['480p'] = '0'
         data.append(item)
+        data.reverse()
     for i in ny:
         
         item['title'] = trim_titlex(i['title'])        
@@ -60,6 +61,7 @@ def parse():
         item['link'] = "magnet:?xt=urn:btih:" + i['nyaa_infohash']
         item['480p'] = '0'
         data.append(item)
+        data.reverse()
     return data
 
 async def auto_parser():
