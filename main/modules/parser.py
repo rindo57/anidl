@@ -38,7 +38,7 @@ def multi_sub(title: str):
 
 def parse():
     a = feedparser.parse("https://www.siftrss.com/f/6XM5qNo7aq")
-    ny = feedparser.parse("https://nyaa.si/?page=rss&q="[SubsPlease] Ore wa Subete wo Parry suru")
+    ny = feedparser.parse("""https://nyaa.si/?page=rss&q="[SubsPlease] Ore wa Subete wo Parry suru"""")
     b = a["entries"]
     c = ny["entries"]
     
