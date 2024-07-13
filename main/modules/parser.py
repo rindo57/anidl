@@ -44,9 +44,9 @@ def parse():
     c = ny["entries"]
     c = c[0:2]
     data = []    
-    item = {}
+    
     for i in b:
-        
+        item = {}
         item['title'] = trim_title(i['title'])
         item['subtitle'] = (i['erai_subtitles'])
         item['size'] = i['erai_size']   
@@ -55,7 +55,7 @@ def parse():
         data.append(item)
         data.reverse()
     for i in c:
-        
+        item = {}
         item['title'] = trim_titlex(i['title'])        
         item['subtitle'] = "us"
         item['size'] = i['nyaa_size']   
