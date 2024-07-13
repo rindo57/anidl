@@ -190,7 +190,7 @@ async def start_uploading(data):
             duration = get_duration(file)
             durationx = get_durationx(file)
             filed = os.path.basename(file)
-            filed = filed.replace(filed[-14:], ".mkv")
+            filed = title
             filed = filed.replace("[Erai-raws]", "[AniDL]")
             filed = filed.replace("[1080p][Multiple Subtitle]", "[1080p Web-DL]")
             filed = filed.replace("[1080p]", "[1080p Web-DL]")
