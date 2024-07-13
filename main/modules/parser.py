@@ -10,9 +10,9 @@ def trim_title(title: str):
     title = title.rsplit(' ', 1)[0]
     title = title.replace("[Magnet] ", "")
     title = f"{title} [1080p][Multiple Subtitle]"
-    title = title.replace("Dr. Stone - New World Cour 2", "Dr Stone New World Part 2")
+    title = title.replace("- Ouji no Kikan", "S2")
     title = title.replace("Mahou Tsukai no Yome Season 2 Cour 2", "Mahou Tsukai no Yome Season 2 Part 2")
-    title = title.replace("Dead Mount Death Play 2nd Cour", "Dead Mount Death Play Part 2")
+    title = title.replace("NieR:Automata Ver1.1a Part 2", "NieR Automata Ver1_1a Season 2")
     title = title.replace(" (CA)", "")
     title = title.replace(" (JA)", "")
     title = title.replace(" (Japanese Audio)", " (JA)")
