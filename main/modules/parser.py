@@ -40,7 +40,7 @@ def parse():
     a = feedparser.parse("https://www.siftrss.com/f/6XM5qNo7aq")
     ny = feedparser.parse('''https://nyaa.si/?page=rss&q=%22[SubsPlease]%20Ore%20wa%20Subete%20wo%20Parry%20suru%22%20(1080p)%20-HEVC''')
     b = a["entries"]
-    b = b[0:1]
+    b = b[0:5]
     c = ny["entries"]
     c = c[0:2]
     data = []    
