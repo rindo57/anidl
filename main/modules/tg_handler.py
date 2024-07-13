@@ -205,14 +205,14 @@ async def start_uploading(data):
             filed = filed.replace("7th Season", "S7")
             
             fpath = "downloads/" + filed
-            ghostname = name
+            
             
             subtitle = subtitle.replace("][", ", ")
             subtitle = subtitle.replace("[", "")
             subtitle = subtitle.replace("]", "")     
-    
+            print(subtitle)
             os.rename(file,"video.mkv")
-            titlx = title.replace('[Erai-raws]', '[Web][480p x265 10Bit][Opus][Erai-raws]')
+            titlx = filed.replace('[Erai-raws]', '[Web][480p x265 10Bit][Opus][Erai-raws]')
             titlx = titlx.replace('[SubsPlease]', '[Web][480p x265 10Bit][Opus][SubsPlease]')
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
