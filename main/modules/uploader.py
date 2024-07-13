@@ -178,7 +178,7 @@ async def upload_video(msg: Message, title, tito, img, file, id, tit, name, ttl,
 
     return x.id
 
-async def upload_video720p(msg: Message, title, img, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info, alink):
+async def upload_video720p(msg: Message, title, tito, img, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info, alink):
 
     try:
         fuk = isfile(file)
@@ -197,7 +197,7 @@ async def upload_video720p(msg: Message, title, img, file, id, tit, name, ttl, m
             anidltitle = filed.replace("[AniDL] ", "")
             anidltitle = anidltitle.replace(" [Web][720p x265 10Bit][Opus][Erai-raws].mkv", "")
             anidltitle = anidltitle.replace(" [Web][720p x265 10Bit][Opus][SubsPlease].mkv", "")
-            filed = filed.replace("[1080p Web-DL]", "[Web][720p x265 10Bit][Opus][Erai-raws]")
+            
             fukpath = "downloads/" + filed
             caption = f"{filed}"
 
@@ -299,7 +299,7 @@ async def upload_video720p(msg: Message, title, img, file, id, tit, name, ttl, m
 
         pass
 
-async def upload_video1080p(msg: Message, title, img, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info, alink):
+async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info, alink):
 
     try:
         fuk = isfile(file)
