@@ -38,7 +38,7 @@ def multi_sub(title: str):
 
 def parse():
     a = feedparser.parse("https://www.siftrss.com/f/6XM5qNo7aq")
-    ny = feedparser.parse("https://nyaa.si/?page=rss&q=%22[SubsPlease]%20Ore%20wa%20Subete%20wo%20Parry%20suru%22%20(1080p)%20-HEVC")
+    ny = feedparser.parse("https://nyaa.si/?page=rss&q="[SubsPlease] Ore wa Subete wo Parry suru")
     b = a["entries"]
     c = ny["entries"]
     
@@ -53,7 +53,7 @@ def parse():
         item['480p'] = '0'
         data.append(item)
         data.reverse()
-    for i in ny:
+    for i in c:
         
         item['title'] = trim_titlex(i['title'])        
         item['subtitle'] = "us"
