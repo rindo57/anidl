@@ -48,7 +48,7 @@ def extract_source(filename):
     
 
 
-async def upload_video(msg: Message, title, img, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info, alink):
+async def upload_video(msg: Message, title, tito, img, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info, alink):
 
     
     try:
@@ -63,12 +63,12 @@ async def upload_video(msg: Message, title, img, file, id, tit, name, ttl, main,
             print(ep_num)
             print("name: ", name)
             rest = tit
-            filed = os.path.basename(file)
+            filed = tito
             source = extract_source(filed)
             print('filed: ', filed)
             anidltitle = filed.replace("[AniDL] ", "")
             anidltitle = anidltitle.replace("[1080p Web-DL].mkv", "")
-            filed = filed.replace("[1080p Web-DL]", "[Web][480p x265 10Bit][Opus][Erai-raws]")
+            
             fukpath = "downloads/" + filed
             caption = f"{filed}"
 
@@ -191,7 +191,7 @@ async def upload_video720p(msg: Message, title, img, file, id, tit, name, ttl, m
             ep_num = get_epnum(name)
             print(ep_num)
             rest = tit
-            filed = os.path.basename(file)
+            filed = tito
             source = extract_source(filed)
             print('filed: ', filed)
             anidltitle = filed.replace("[AniDL] ", "")
@@ -311,7 +311,7 @@ async def upload_video1080p(msg: Message, title, img, file, id, tit, name, ttl, 
             ep_num = get_epnum(name)
             print(ep_num)
             rest = tit
-            filed = os.path.basename(file)
+            filed = tito
             source = extract_source(filed)
             print('filed: ', filed)
             anidltitle = filed.replace("[AniDL] ", "")
