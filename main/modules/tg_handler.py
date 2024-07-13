@@ -189,10 +189,10 @@ async def start_uploading(data):
 
             duration = get_duration(file)
             durationx = get_durationx(file)
-            filed = os.path.basename(file)
+            #filed = os.path.basename(file)
             filed = title
-            filed = filed.replace("[Erai-raws]", "[AniDL]")
-            filed = filed.replace("[1080p][Multiple Subtitle]", "[1080p Web-DL]")
+            
+            #filed = filed.replace("[1080p][Multiple Subtitle]", "[1080p Web-DL]")
             filed = filed.replace("[1080p]", "[1080p Web-DL]")
             filed = filed.replace("2nd Season", "S2")
             filed = files.replace("Season 2", "S2")
@@ -206,10 +206,7 @@ async def start_uploading(data):
             
             fpath = "downloads/" + filed
             ghostname = name
-            ghostname = ghostname.replace("[1080p][Multiple Subtitle]", "")
-            ghostname = ghostname.replace("[1080p]", "")
-            ghostname = ghostname.replace("2nd Season", "S2")
-            ghostname = ghostname.replace("3rd Season", "S3")
+            
             subtitle = subtitle.replace("][", ", ")
             subtitle = subtitle.replace("[", "")
             subtitle = subtitle.replace("]", "")     
