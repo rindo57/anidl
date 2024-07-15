@@ -10,7 +10,7 @@ def trim_title(title: str):
     title = title.rsplit(' ', 1)[0]
     title = title.replace("[Magnet] ", "")
     title = f"{title} [Erai-raws]"
-    title = title.replace("- Ouji no Kikan", "S2")
+    title = title.replace(": Ouji no Kikan", " S2")
     title = title.replace("Mahou Tsukai no Yome Season 2 Cour 2", "Mahou Tsukai no Yome Season 2 Part 2")
     title = title.replace("NieR:Automata Ver1.1a Part 2", "NieR Automata Ver1_1a Season 2")
     title = title.replace(" (CA)", "")
