@@ -247,6 +247,16 @@ async def start_uploading(data):
             titlev2 = data["title"]
             id, img, tit = await get_anime_img(get_anime_name(titlev2))
             msg2 = await app.send_photo(bin_id,photo=img,caption=titlev2)
+            titlev2 = titlev2.replace("[1080p]", "[1080p Web-DL]")
+            titlev2 = titlev2.replace("2nd Season", "S2")
+            titlev2 = titlev2.replace("Season 2", "S2")
+            titlev2 = titlev2.replace("Season 3", "S3")
+            titlev2 = titlev2.replace("Season 4", "S4")
+            titlev2 = titlev2.replace("3rd Season", "S3")
+            titlev2 = titlev2.replace("4th Season", "S4")
+            titlev2 = titlev2.replace("5th Season", "S5")
+            titlev2 = titlev2.replace("6th Season", "S6")
+            titlev2 = titlev2.replace("7th Season", "S7")
             
             titlx2 = titlev2.replace('[Erai-raws]', '[Web][720p x265 10Bit][Opus][Erai-raws]')
             titlx2 = titlx2.replace('[SubsPlease]', '[Web][720p x265 10Bit][Opus][SubsPlease]')
@@ -274,7 +284,7 @@ async def start_uploading(data):
 
             msg3 = await app.send_photo(bin_id,photo=img,caption=title)
             
-            titlx3 = title.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
+            titlx3 = titlev2.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
             titlx3 = titlx3.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
