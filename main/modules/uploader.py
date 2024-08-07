@@ -217,17 +217,18 @@ async def upload_video720p(msg: Message, title, tito, img, file, id, tit, name, 
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
-            cfurl = "http://localhost:8191/v1"
+            """cfurl = "http://localhost:8191/v1"
             headers = {"Content-Type": "application/json"}
             dataz = {
                 "cmd": "request.get",
-                "url": f"http://ouo.press/api/jezWr0hG?s={ddlurl}",
+                "url": f"http://ouo.io/api/jezWr0hG?s={ddlurl}",
                 "maxTimeout": 60000
-            }
-            responsez = requests.post(cfurl, headers=headers, json=dataz)
-            html_content = responsez.json()['solution']['response']
-            soup = BeautifulSoup(html_content, 'html.parser')
-            extracted_url = soup.body.get_text()
+            }"""
+            ourl = f"http://ouo.io/api/jezWr0hG?s={ddlurl}"
+            responsez = requests.get(ourl)
+            """html_content = responsez.json()['solution']['response']
+            soup = BeautifulSoup(html_content, 'html.parser')"""
+            extracted_url = responsez.text
             print(extracted_url)
             da_url = "https://da.gd/"
             shorten_url = f"{da_url}shorten"
