@@ -413,7 +413,8 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
                         
                     ],
             )
-            fmarkup2=InlineKeyboardMarkup(
+            fmarkups=[
+                InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
@@ -431,8 +432,8 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
                         ],
                         [   
                             InlineKeyboardButton(
-                                text="🍅",
-                                url="https://t.me/TomClicker_bot?start=1425489930",
+                                text="W-Coin",
+                                url="https://t.me/wcoin_tapbot?start=MTQyNTQ4OTkzMA==",
                             ),
                             InlineKeyboardButton(
                                 text="🌐 AIRING ANIME",
@@ -440,9 +441,68 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
                             ),
                         
                         ],
-                        
                     ],
-            )
+                ),
+                InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="🔗 480p",
+                                url=code480p,
+                            ),
+                            InlineKeyboardButton(
+                                text="🔗 720p",
+                                url=code720p,
+                            ),
+                            InlineKeyboardButton(
+                                text="🔗 1080p",
+                                url=fxylink,
+                            ),
+                        ],
+                        [   
+                            InlineKeyboardButton(
+                                text="🐹",
+                                url="https://t.me/hamster_kombat_bOt/start?startapp=kentId1425489930",
+                            ),
+                            InlineKeyboardButton(
+                                text="🌐 AIRING ANIME",
+                                url="https://anidl.org/airing-anime",
+                            ),
+                        
+                        ],
+                    ],
+                ),
+                InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="🔗 480p",
+                                url=code480p,
+                            ),
+                            InlineKeyboardButton(
+                                text="🔗 720p",
+                                url=code720p,
+                            ),
+                            InlineKeyboardButton(
+                                text="🔗 1080p",
+                                url=fxylink,
+                            ),
+                        ],
+                        [   
+                            InlineKeyboardButton(
+                                text="🌟",
+                                url="https://t.me/major/start?startapp=1425489930",
+                            ),
+                            InlineKeyboardButton(
+                                text="🌐 AIRING ANIME",
+                                url="https://anidl.org/airing-anime",
+                            ),
+                        
+                        ],
+                    ],
+                )
+            ]
+                
             await asyncio.sleep(3)
             print("title upload: ", title)
             postid = await get_postid(title)
@@ -454,7 +514,7 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
                 chat_id=ongid,
                 from_chat_id=anidl_id,
                 message_id=postid,
-                reply_markup=fmarkup2
+                reply_markup=random.choice(fmarkups)
             )
     except Exception as e:
         await app.send_message(kayo_id, text="Something Went Wrong!" + "\n" + e)
