@@ -85,10 +85,10 @@ async def upload_video(msg: Message, title, tito, img, file, id, tit, name, ttl,
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             print("hash1:", hash)
-            flx = filed.replace(".mkv", "")
+            
             filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
             print(filedx)
-            save_file_in_db(flx, hash, subtitle, img, audio_info, tit, alink, size480p, upid)
+            save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size480p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
@@ -218,10 +218,10 @@ async def upload_video720p(msg: Message, title, tito, img, file, id, tit, name, 
             )
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
-            flx = filed.replace(".mkv", "")
+            
             filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
             print(filedx)
-            save_file_in_db(flx, hash, subtitle, img, audio_info, tit, alink, size720p, upid)
+            save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size720p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
@@ -343,8 +343,8 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
             )
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
-            flx = filed.replace(".mkv", "")
-            filedz = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
+            
+            filedz = filed + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
             print(filedz)
             save_file_in_db(flx, hash, subtitle, img, audio_info, tit, alink, size1080p, upid)
             print(hash)
