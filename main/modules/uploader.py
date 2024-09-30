@@ -86,8 +86,9 @@ async def upload_video(msg: Message, title, tito, img, file, id, tit, name, ttl,
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             print("hash1:", hash)
             
-            filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
-            print(filedx)
+            #filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
+            #print(filedx)
+            fixed = filed + ".mkv"
             save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size480p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
@@ -219,9 +220,10 @@ async def upload_video720p(msg: Message, title, tito, img, file, id, tit, name, 
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             
-            filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
-            print(filedx)
-            save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size720p, upid)
+           # filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
+            #print(filedx)
+            fjsk = filed + ".mkv" 
+            save_file_in_db(fjsk, hash, subtitle, img, audio_info, tit, alink, size720p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
@@ -344,9 +346,10 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             
-            filedz = filed + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
-            print(filedz)
-            save_file_in_db(flx, hash, subtitle, img, audio_info, tit, alink, size1080p, upid)
+            #filedz = filed + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
+            #print(filedz)
+            sjsk = filed + ".mkv"
+            save_file_in_db(sjsk, hash, subtitle, img, audio_info, tit, alink, size1080p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
@@ -461,8 +464,8 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
                         ],
                         [   
                             InlineKeyboardButton(
-                                text="🐹",
-                                url="https://t.me/hamster_kombat_bOt/start?startapp=kentId1425489930",
+                                text="😼",
+                                url = "https://t.me/catsgang_bot/join?startapp=AfLmdkwrZg7c3J4v4nMHe",
                             ),
                             InlineKeyboardButton(
                                 text="🌐 AIRING ANIME",
