@@ -88,7 +88,7 @@ async def upload_video(msg: Message, title, tito, img, file, id, tit, name, ttl,
             
             #filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
             #print(filedx)
-            fixed = filed + ".mkv"
+            
             save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size480p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
@@ -222,8 +222,8 @@ async def upload_video720p(msg: Message, title, tito, img, file, id, tit, name, 
             
            # filedx = flx + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
             #print(filedx)
-            fjsk = filed + ".mkv" 
-            save_file_in_db(fjsk, hash, subtitle, img, audio_info, tit, alink, size720p, upid)
+            
+            save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size720p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
@@ -348,8 +348,8 @@ async def upload_video1080p(msg: Message, title, tito, img, file, id, tit, name,
             
             #filedz = filed + " [" + "".join([random.choice(ascii_letters.upper() + digits) for n in range(8)]) + "]"
             #print(filedz)
-            sjsk = filed + ".mkv"
-            save_file_in_db(sjsk, hash, subtitle, img, audio_info, tit, alink, size1080p, upid)
+            
+            save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size1080p, upid)
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
