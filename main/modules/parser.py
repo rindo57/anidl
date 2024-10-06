@@ -11,7 +11,7 @@ def trim_title(title: str):
     title = title.replace("[Magnet] ", "")
     title = f"{title} [Erai-raws]"
     title = title.replace(": Ouji no Kikan", " S2")
-    title = title.replace("Mahou Tsukai no Yome Season 2 Cour 2", "Mahou Tsukai no Yome Season 2 Part 2")
+    title = title.replace("Fairy Tail - 100 Years Quest - S01", "Fairy Tail - 100 Years Quest - Special 01")
     title = title.replace("NieR:Automata Ver1.1a Part 2", "NieR Automata Ver1_1a Season 2")
     title = title.replace(" (CA)", "")
     title = title.replace(" (JA)", "")
@@ -37,7 +37,7 @@ def multi_sub(title: str):
     return subtitle
 
 def parse():
-    a = feedparser.parse("https://www.siftrss.com/f/6XM5qNo7aq")
+    a = feedparser.parse("https://siftrss.com/f/oWzjMJ1xo5")
     ny = feedparser.parse('''https://nyaa.si/?page=rss&q=%22[SubsPlease]%20Ore%20wa%20Subete%20wo%20Parry%20suru%22%20(1080p)%20-HEVC''')
     b = a["entries"]
     
