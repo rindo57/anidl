@@ -257,6 +257,7 @@ async def start_uploading(data):
             titlev2 = titlev2.replace("5th Season", "S5")
             titlev2 = titlev2.replace("6th Season", "S6")
             titlev2 = titlev2.replace("7th Season", "S7")
+            titlev2 = titlev2.replace("8th Season", "S8")
             
             titlx2 = titlev2.replace('[Erai-raws]', '[Web][720p x265 10Bit][Opus][Erai-raws]')
             titlx2 = titlx2.replace('[SubsPlease]', '[Web][720p x265 10Bit][Opus][SubsPlease]')
@@ -361,6 +362,7 @@ async def start_uploading(data):
             filed = filed.replace("5th Season", "S5")
             filed = filed.replace("6th Season", "S6")
             filed = filed.replace("7th Season", "S7")
+            filed = filed.replace("8th Season", "S8")
             razo = filed.replace("[1080p Web-DL]", "[720p x265] @animxt")
             fpath = "downloads/" + filed
             ghostname = name
@@ -474,14 +476,14 @@ async def start_uploading(data):
             #filed = filed.replace("[1080p]", "[1080p Web-DL]")
             filed = filed.replace("2nd Season", "S2")
             filed = filed.replace("Season 2", "S2")
-            filed = filed.replace("Season 3", "S2")
-            filed = files.replace("Season 4", "S2")
+            filed = filed.replace("Season 3", "S3")
+            filed = filed.replace("Season 4", "S4")
             filed = filed.replace("3rd Season", "S3")
             filed = filed.replace("4th Season", "S4")
             filed = filed.replace("5th Season", "S5")
             filed = filed.replace("6th Season", "S6")
             filed = filed.replace("7th Season", "S7")
-         
+            filed = filed.replace("8th Season", "S8")
             fpath = "downloads/" + filed
             ghostname = name
             ghostname = ghostname.replace("[1080p][Multiple Subtitle]", "")
