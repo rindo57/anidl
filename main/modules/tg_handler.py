@@ -481,7 +481,7 @@ async def start_uploading(data):
             filed = filed.replace("5th Season", "S5")
             filed = filed.replace("6th Season", "S6")
             filed = filed.replace("7th Season", "S7")
-            razo = filed.replace("[1080p Web-DL]", "[720p x265] @animxt")
+         
             fpath = "downloads/" + filed
             ghostname = name
             ghostname = ghostname.replace("[1080p][Multiple Subtitle]", "")
