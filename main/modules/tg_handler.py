@@ -530,7 +530,10 @@ async def start_uploading(data):
 
                 pass  
         else:
+            name = data["title"]
             print("All format uploaded.")
+            print("del " , name)
+            await del_anime(name)
             id = None
             name = None
             video = None
