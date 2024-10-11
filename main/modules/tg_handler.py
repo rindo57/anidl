@@ -373,7 +373,7 @@ async def start_uploading(data):
             subtitle = subtitle.replace("]", "")     
     
             os.rename(file,"video.mkv")
-            titlx = title.replace('[Erai-raws]', '[Web][720p x265 10Bit][Opus][Erai-raws]')
+            titlx = filed.replace('[Erai-raws]', '[Web][720p x265 10Bit][Opus][Erai-raws]')
             titlx = titlx.replace('[SubsPlease]', '[Web][720p x265 10Bit][Opus][SubsPlease]')
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
@@ -493,7 +493,7 @@ async def start_uploading(data):
             subtitle = subtitle.replace("]", "")     
     
             os.rename(file,"video.mkv")
-            titlx = title.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
+            titlx = filed.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
             titlx = titlx.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
