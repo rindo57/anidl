@@ -41,10 +41,8 @@ async def downloader(message: Message, link: str,total,name):
         total,
         enco=False
       )
-    try:
-      await r.edit(text=texty)
-    except:
-      pass
+    await r.edit(text=texty)
+
 
     await asyncio.sleep(10)
   
