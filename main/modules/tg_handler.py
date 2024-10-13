@@ -136,7 +136,10 @@ mapping = {
     "gr": "GRE",
     "kr": "KOR",
     "dk": "DAN",
-    "cz": "CES"
+    "cz": "CES",
+    "ph": "FIL",
+    "UA": "UKR"
+    
 }
 
 def get_audio_language(video_path):
