@@ -12,6 +12,7 @@ def trim_title(title: str):
     title = f"{title} [Erai-raws]"
     title = title.replace(": Ouji no Kikan", " S2")
     title = title.replace("Fairy Tail - 100 Years Quest - S01", "Fairy Tail - 100 Years Quest - Special 01")
+    title = title.replace("Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka: Familia Myth V", "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka V: Houjou no Megami-hen")
     title = title.replace("NieR:Automata Ver1.1a Part 2", "NieR Automata Ver1_1a Season 2")
     title = title.replace(" (CA)", "")
     title = title.replace(" (JA)", "")
