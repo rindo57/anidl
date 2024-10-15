@@ -36,7 +36,7 @@ def trim_titlez(title: str):
 
 
 def trim_titlex(title: str):
-    ep = title.rsplit(' ', 5)[-1].replace("S02E", "- ")
+    ep = title.rsplit(' ', 5)[-1].replace("S02E", "S2 - ")
     title = title.rsplit(' ', 14)[0]
     title = title.replace("[Passerby-ApocalypticSubs] ", "")
     ext = ".mkv"
