@@ -25,7 +25,7 @@ def trim_title(title: str):
     title = title + ext
     return title
 
-def trim_titlex(title: str):
+def trim_titlez(title: str):
     title = title.rsplit(' ', 1)[0]
     title = title.replace("[SubsPlease] ", "")
     title = title.replace(" (1080p)", "")
@@ -33,13 +33,24 @@ def trim_titlex(title: str):
     ext = ".mkv"
     title = title + ext
     return title
+
+
+def trim_titlex(title: str):
+    ep = title.rsplit(' ', 5)[-1].replace("S02E", "- ")
+    title = title.rsplit(' ', 14)[0]
+    title = title.replace("[Passerby-ApocalypticSubs]", "")
+    ext = ".mkv"
+    title = title + " " + ep + ext
+    print(title)
+    return title
+    
 def multi_sub(title: str):
     subtitle = title.split()[-1] 
     return subtitle
 
 def parse():
     a = feedparser.parse("https://www.siftrss.com/f/6XM5qNo7aq")
-    ny = feedparser.parse('''https://nyaa.si/?page=rss&q=%22[SubsPlease]%20Ore%20wa%20Subete%20wo%20Parry%20suru%22%20(1080p)%20-HEVC''')
+    ny = feedparser.parse("https://nyaa.si/?page=rss&q=Passerby-ApocalypticSubs")
     b = a["entries"]
     
     c = ny["entries"]
