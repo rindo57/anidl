@@ -40,7 +40,7 @@ def trim_titlex(title: str):
     title = title.rsplit(' ', 14)[0]
     title = title.replace("[Passerby-ApocalypticSubs]", "")
     ext = ".mkv"
-    title = title + " " + ep + ext
+    title = title + " " + ep + " " + "[Passerby-ApocalypticSubs]" + ext
     print(title)
     return title
     
@@ -50,7 +50,7 @@ def multi_sub(title: str):
 
 def parse():
     a = feedparser.parse("https://www.siftrss.com/f/6XM5qNo7aq")
-    ny = feedparser.parse("https://nyaa.si/?page=rss&q=Passerby-ApocalypticSubs")
+    ny = feedparser.parse("https://www.siftrss.com/f/xg5xjGXvlP")
     b = a["entries"]
     
     c = ny["entries"]
