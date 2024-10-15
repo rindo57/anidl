@@ -74,7 +74,7 @@ async def tg_handler():
 
             try:
 
-                await status.edit(await status_text(f"Floodwait... Sleeping For {flood_time} Seconds"),reply_markup=button1)
+                await status.edit(await status_text(f"Floodwait... Sleeping For {flood_time} Seconds"))
 
             except:
 
