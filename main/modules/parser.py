@@ -81,7 +81,7 @@ def parse():
 async def auto_parser():
     while True:
         try:
-            await status.edit(await status_text("Parsing Rss, Fetching Magnet Links..."),reply_markup=button1)
+            await status.edit(await status_text("Parsing Rss, Fetching Magnet Links..."))
         except:
             pass
 
@@ -110,7 +110,7 @@ async def auto_parser():
                 print("Saved ", i["name"])   
 
         try:
-            await status.edit(await status_text("Idle..."),reply_markup=button1)
+            await status.edit(await status_text("Idle..."))
         except:
             pass
 
