@@ -265,7 +265,7 @@ async def start_uploading(data):
             
             titlx2 = titlev2.replace('[Erai-raws]', '[Web][720p x265 10Bit][Opus][Erai-raws]')
             titlx2 = titlx2.replace('[SubsPlease]', '[Web][720p x265 10Bit][Opus][SubsPlease]')
-            titlx2 = titlx2.replace('[Passerby-ApocalypticSubs]', '[Web][480p x265 10Bit][Opus][Passerby-ApocalypticSubs]')
+            titlx2 = titlx2.replace('[Passerby-ApocalypticSubs]', '[Web][720p x265 10Bit][Opus][Passerby-ApocalypticSubs]')
            
             titm2 = f"**[AniDL] {titlx2}**"
             tito2 = f"[AniDL] {titlx2}"
@@ -293,7 +293,7 @@ async def start_uploading(data):
             
             titlx3 = titlev2.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
             titlx3 = titlx3.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
-            titlx3 = titlx3.replace('[Passerby-ApocalypticSubs]', '[Web][480p x265 10Bit][Opus][Passerby-ApocalypticSubs]')
+            titlx3 = titlx3.replace('[Passerby-ApocalypticSubs]', '[Web][1080p x265 10Bit][AAC][Passerby-ApocalypticSubs]')
            
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
@@ -385,7 +385,7 @@ async def start_uploading(data):
             os.rename(file,"video.mkv")
             titlx = filed.replace('[Erai-raws]', '[Web][720p x265 10Bit][Opus][Erai-raws]')
             titlx = titlx.replace('[SubsPlease]', '[Web][720p x265 10Bit][Opus][SubsPlease]')
-            titlx = titlx.replace('[Passerby-ApocalypticSubs]', '[Web][480p x265 10Bit][Opus][Passerby-ApocalypticSubs]')
+            titlx = titlx.replace('[Passerby-ApocalypticSubs]', '[Web][720p x265 10Bit][Opus][Passerby-ApocalypticSubs]')
            
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
@@ -418,7 +418,7 @@ async def start_uploading(data):
             msg3 = await app.send_photo(bin_id,photo=img,caption=title)
             titlx3 = title.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
             titlx3 = titlx3.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
-            titlx3 = titlx3.replace('[Passerby-ApocalypticSubs]', '[Web][480p x265 10Bit][Opus][Passerby-ApocalypticSubs]')
+            titlx3 = titlx3.replace('[Passerby-ApocalypticSubs]', '[Web][1080p x265 10Bit][AAC][Passerby-ApocalypticSubs]')
            
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
