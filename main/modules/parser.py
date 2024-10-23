@@ -50,7 +50,7 @@ def multi_sub(title: str):
     return subtitle
 
 def parse():
-    a = feedparser.parse("https://www.siftrss.com/f/6XM5qNo7aq")
+    a = feedparser.parse("https://www.siftrss.com/f/pN3NDyNaay7")
     ny = feedparser.parse("https://www.siftrss.com/f/xg5xjGXvlP")
     b = a["entries"]
     
@@ -115,4 +115,4 @@ async def auto_parser():
         except:
             pass
 
-        await asyncio.sleep(30)
+        await asyncio.sleep(60)
