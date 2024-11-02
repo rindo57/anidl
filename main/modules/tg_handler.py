@@ -543,8 +543,10 @@ async def start_uploading(data):
                 os.remove(file)
                 os.remove(fpath)
             except:
-
                 pass  
+            print("All format uploaded.")
+            print("del " , name)
+            await del_anime(name)
         else:
             name = data["title"]
             print("All format uploaded.")
