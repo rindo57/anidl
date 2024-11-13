@@ -21,7 +21,7 @@ def trim_title(title: str):
             print("Eng Title:", extracted_part)
     #title = title.rsplit(' ', 1)[0]
     titlef = Cleaned_title.replace("[Magnet] ", "")
-    title = f"{title} [Erai-raws]"
+    titlef = f"{titlef} [Erai-raws]"
     #title = title.replace(": Ouji no Kikan", " S2")
    # title = title.replace("Saikyou no Shienshoku -Wajutsushi- de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru", "Saikyou no Shien-shoku [Wajutsushi] de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru")
     #title = title.replace("Fairy Tail - 100 Years Quest - S01", "Fairy Tail - 100 Years Quest - Special 01")
