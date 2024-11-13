@@ -5,7 +5,7 @@ from main.modules.db import get_animesdb, get_uploads, save_animedb
 import feedparser
 from main import queue
 from main.inline import button1
-
+import re
 def trim_title(title: str):
     match = re.match(r'(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)(?=\s*\[)', title)
     if match:
