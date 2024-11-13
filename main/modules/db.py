@@ -107,7 +107,7 @@ def save_file_in_db(filed, hash, subtitle, img, audio_info, tit, alink, size, up
             "hash": hash,
             "fid": str(upid),
         },
-        {"$set": {"filename": filed, "filenamex": filed, "code": hash, "msg_id": upid, "subtitle": subtitle, "image": img, "audio": audio_info, "etitle": tit, "alink": alink, "size": size}},
+        {"$set": {"filename": filed, "filenamex": filed, "code": hash, "msg_id": upid, "subtitle": subtitle, "audio": audio_info, "etitle": tit, "size": size}},
         upsert=True,
     )
     return
