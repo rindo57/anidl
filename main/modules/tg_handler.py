@@ -161,6 +161,7 @@ async def start_uploading(data):
     try:
         if data["480p"]=='0':
             title = data["title"]
+            entitle = data["entitle"]
             dbtit = data["title"]
             link = data["link"]
             size = data["size"]
@@ -178,12 +179,12 @@ async def start_uploading(data):
             bin_id = -1002062055380
             name = name.replace(f" [AniDL].","").replace(ext,"").strip()
             zumba = title.replace("S2", "Season 2")
-            id, img, tit = await get_anime_img(get_anime_name(zumba))
-            msg = await app.send_photo(bin_id,photo=img,caption=title)
+            #id, img, tit = await get_anime_img(get_anime_name(zumba))
+            msg = await app.send_message(bin_id,title)
 
             print("Downloading --> ",name)
-            img, alink = await get_anilist_data(zumba)
-            print(alink)
+           # img,  = await get_anilist_data(zumba)
+           
             await asyncio.sleep(5)
             file = await downloader(msg,link,size,title)
 
@@ -221,7 +222,7 @@ async def start_uploading(data):
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
             
-            main = await app.send_photo(KAYO_ID,photo=img, caption=titm)
+            main = await app.send_message(KAYO_ID,titm)
             video_path="video.mkv"
         
             audio_language = get_audio_language(video_path)
@@ -243,14 +244,14 @@ async def start_uploading(data):
                 os.rename("out.mkv",fpath)
   
             print("Uploading --> ",name)
-            video = await upload_video(msg,title,tito,img,fpath,id,tit,name,size,main,subtitle,nyaasize,audio_language, alink)
+            video = await upload_video(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             print("480title: ", data["title"])
             save_480p(data["title"])
    
             print(data["title"])
             titlev2 = data["title"]
-            id, img, tit = await get_anime_img(get_anime_name(titlev2))
-            msg2 = await app.send_photo(bin_id,photo=img,caption=titlev2)
+            #id, img, tit = await get_anime_img(get_anime_name(titlev2))
+            msg2 = await app.send_message(bin_id,titlev2)
             titlev2 = titlev2.replace("[1080p]", "[1080p Web-DL]")
             titlev2 = titlev2.replace("2nd Season", "S2")
             titlev2 = titlev2.replace("Season 2", "S2")
@@ -269,7 +270,7 @@ async def start_uploading(data):
            
             titm2 = f"**[AniDL] {titlx2}**"
             tito2 = f"[AniDL] {titlx2}"
-            main2 = await app.send_photo(KAYO_ID,photo=img, caption=titm2)
+            main2 = await app.send_message(KAYO_ID,titm2)
             compressed2 = await compress_video720p(duration,main2,tito2)
     
 
@@ -284,12 +285,12 @@ async def start_uploading(data):
                 os.rename("out.mkv",fpath)
   
             print("Uploading --> ",name)
-            video = await upload_video720p(msg2,title,tito2,img,fpath,id,tit,name,size,main2,subtitle,nyaasize,audio_language, alink)
+            video = await upload_video720p(msg2,title,tito2,fpath,id,tit,name,size,main2,subtitle,nyaasize,audio_language, )
             save_720p(data["title"])
             await asyncio.sleep(5)
 # 1080p 
 
-            msg3 = await app.send_photo(bin_id,photo=img,caption=title)
+            msg3 = await app.send_message(bin_id,title)
             
             titlx3 = titlev2.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
             titlx3 = titlx3.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
@@ -297,7 +298,7 @@ async def start_uploading(data):
            
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
-            main3 = await app.send_photo(KAYO_ID,photo=img, caption=titm3)
+            main3 = await app.send_message(KAYO_ID,titm3)
             
             compressed3 = await compress_video1080p(duration,main3,tito3)
     
@@ -313,7 +314,7 @@ async def start_uploading(data):
                 os.rename("out.mkv",fpath)
   
             print("Uploading --> ",name)
-            video = await upload_video1080p(msg3,title,tito3,img,fpath,id,tit,name,size,main3,subtitle,nyaasize,audio_language, alink)
+            video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
@@ -326,6 +327,7 @@ async def start_uploading(data):
         
         elif data["480p"]=='01':
             title = data["title"]
+            entitle = data["entitle"]
             dbtit = data["title"]
             link = data["link"]
             size = data["size"]
@@ -343,11 +345,11 @@ async def start_uploading(data):
             DATABASE_ID = -1001895203720
             bin_id = -1002062055380
             name = name.replace(f" [AniDL].","").replace(ext,"").strip()
-            id, img, tit = await get_anime_img(get_anime_name(title))
-            msg = await app.send_photo(bin_id,photo=img,caption=title)
+           # id, img, tit = await get_anime_img(get_anime_name(title))
+            msg = await app.send_message(bin_id,caption=title)
 
             print("Downloading --> ",name)
-            img, alink = await get_anilist_data(title)
+            #img,  = await get_anilist_data(title)
             await asyncio.sleep(5)
             await status.edit(await status_text(f"Downloading {name}"),reply_markup=button1)
             file = await downloader(msg,link,size,title)
@@ -389,7 +391,7 @@ async def start_uploading(data):
            
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
-            main = await app.send_photo(KAYO_ID,photo=img, caption=titm)
+            main = await app.send_message(KAYO_ID,titm)
             video_path="video.mkv"
         
             audio_language = get_audio_language(video_path)
@@ -411,18 +413,18 @@ async def start_uploading(data):
                 os.rename("out.mkv",fpath)
   
             print("Uploading --> ",name)
-            video = await upload_video720p(msg,title,tito,img,fpath,id,tit,name,size,main,subtitle,nyaasize,audio_language, alink)
+            video = await upload_video720p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             save_720p(data["title"])
 #1080p 
 
-            msg3 = await app.send_photo(bin_id,photo=img,caption=title)
+            msg3 = await app.send_message(bin_id,title)
             titlx3 = title.replace('[Erai-raws]', '[Web][1080p x265 10Bit][AAC][Erai-raws]')
             titlx3 = titlx3.replace('[SubsPlease]', '[Web][1080p x265 10Bit][AAC][SubsPlease]')
             titlx3 = titlx3.replace('[Passerby-ApocalypticSubs]', '[Web][1080p x265 10Bit][AAC][Passerby-ApocalypticSubs]')
            
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
-            main3 = await app.send_photo(KAYO_ID,photo=img, caption=titm3)
+            main3 = await app.send_message(KAYO_ID,titm3)
             
             compressed = await compress_video1080p(duration,main3,tito3)
     
@@ -438,7 +440,7 @@ async def start_uploading(data):
                 os.rename("out.mkv",fpath)
   
             print("Uploading --> ",name)
-            video = await upload_video1080p(msg3,title,tito3,img,fpath,id,tit,name,size,main3,subtitle,nyaasize,audio_language, alink)
+            video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
@@ -450,6 +452,7 @@ async def start_uploading(data):
         #1080p
         elif data["480p"]=='012':
             title = data["title"]
+            entitle = data["entitle"]
             dbtit = data["title"]
             link = data["link"]
             size = data["size"]
@@ -466,11 +469,11 @@ async def start_uploading(data):
             DATABASE_ID = -1001895203720
             bin_id = -1002062055380
             name = name.replace(f" [AniDL].","").replace(ext,"").strip()
-            id, img, tit = await get_anime_img(get_anime_name(title))
-            msg = await app.send_photo(bin_id,photo=img,caption=title)
+            #id, img, tit = await get_anime_img(get_anime_name(title))
+            msg = await app.send_message(bin_id,title)
 
             print("Downloading --> ",name)
-            img, alink = await get_anilist_data(title)
+            #img,  = await get_anilist_data(title)
             await asyncio.sleep(5)
             await status.edit(await status_text(f"Downloading {name}"),reply_markup=button1)
             file = await downloader(msg,link,size,title)
@@ -513,7 +516,7 @@ async def start_uploading(data):
             titm = f"**[AniDL] {titlx}**"
             tito = f"[AniDL] {titlx}"
             print('bye')
-            main = await app.send_photo(KAYO_ID,photo=img, caption=titm)
+            main = await app.send_message(KAYO_ID,titm)
             video_path="video.mkv"
         
             audio_language = get_audio_language(video_path)
@@ -535,7 +538,7 @@ async def start_uploading(data):
                 os.rename("out.mkv",fpath)
   
             print("Uploading --> ",name)
-            video = await upload_video1080p(msg,title,tito,img,fpath,id,tit,name,size,main,subtitle,nyaasize,audio_language, alink)
+            video = await upload_video1080p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
