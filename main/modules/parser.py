@@ -20,7 +20,7 @@ def trim_title(title: str):
         if extracted_part:
             print("Eng Title:", extracted_part)
     #title = title.rsplit(' ', 1)[0]
-    titlef = extracted_part.replace("[Magnet] ", "")
+    titlef = Cleaned_title.replace("[Magnet] ", "")
     title = f"{title} [Erai-raws]"
     #title = title.replace(": Ouji no Kikan", " S2")
    # title = title.replace("Saikyou no Shienshoku -Wajutsushi- de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru", "Saikyou no Shien-shoku [Wajutsushi] de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru")
@@ -36,7 +36,7 @@ def trim_title(title: str):
     title = title.replace("(AAC 2.0) ", "")
     ext = ".mkv"
     title = titlef + ext
-    return title
+    return title, extracted_part
 
 def trim_titlez(title: str):
     title = title.rsplit(' ', 1)[0]
@@ -73,7 +73,7 @@ def parse():
     for i in b:
         if "(ITA)" not in i['title']:
             item = {}
-            item['title'] = trim_title(i['title'])
+            item['title'], item["entitle"] = trim_title(i['title'])
             item['subtitle'] = (i['erai_subtitles'])
             item['size'] = i['erai_size']   
             item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
@@ -82,7 +82,8 @@ def parse():
             data.reverse()
     for i in c:
         item = {}
-        item['title'] = trim_titlex(i['title'])        
+        item['title'] = trim_titlex(i['title'])  
+        item['entitle'] = "The Seven Deadly Sins: Four Knights of the Apocalypse"
         item['subtitle'] = "us"
         item['size'] = i['nyaa_size']   
         item['link'] = "magnet:?xt=urn:btih:" + i['nyaa_infohash']
