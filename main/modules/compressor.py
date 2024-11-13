@@ -99,7 +99,7 @@ async def compress_video(total_time,main,name):
 
         try:
 
-          await main.edit_message_text(progress_str, parse_mode=enums.ParseMode.HTML)
+          await main.edit_text(progress_str, parse_mode=enums.ParseMode.HTML)
 
         except:
 
@@ -195,7 +195,7 @@ async def compress_video720p(total_time,main,name):
 
         try:
 
-          await main.edit_message_tex(progress_str, parse_mode=enums.ParseMode.HTML)
+          await main.edit_text(progress_str, parse_mode=enums.ParseMode.HTML)
 
         except:
 
@@ -290,7 +290,7 @@ async def compress_video1080p(total_time,main,name):
 
         try:
 
-          await main.edit_message_text(progress_str, parse_mode=enums.ParseMode.HTML)
+          await main.edit_text(progress_str, parse_mode=enums.ParseMode.HTML)
 
         except:
 
