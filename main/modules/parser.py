@@ -7,23 +7,35 @@ from main import queue
 from main.inline import button1
 
 def trim_title(title: str):
-    title = title.rsplit(' ', 1)[0]
-    title = title.replace("[Magnet] ", "")
+    match = re.match(r'(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)(?=\s*\[)', title)
+    if match:
+        main_title = match.group(1)
+        episode_number = match.group(3)
+        cleaned_title = f"{main_title} - {episode_number}"
+    
+    # Extract optional title part after '|'
+        extracted_part = match.group(2)
+    
+        print("Cleaned Title:", cleaned_title)
+        if extracted_part:
+            print("Eng Title:", extracted_part)
+    #title = title.rsplit(' ', 1)[0]
+    titlef = extracted_part.replace("[Magnet] ", "")
     title = f"{title} [Erai-raws]"
-    title = title.replace(": Ouji no Kikan", " S2")
-    title = title.replace("Saikyou no Shienshoku -Wajutsushi- de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru", "Saikyou no Shien-shoku [Wajutsushi] de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru")
-    title = title.replace("Fairy Tail - 100 Years Quest - S01", "Fairy Tail - 100 Years Quest - Special 01")
-    title = title.replace("Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka: Familia Myth V", "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka V: Houjou no Megami-hen")
+    #title = title.replace(": Ouji no Kikan", " S2")
+   # title = title.replace("Saikyou no Shienshoku -Wajutsushi- de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru", "Saikyou no Shien-shoku [Wajutsushi] de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru")
+    #title = title.replace("Fairy Tail - 100 Years Quest - S01", "Fairy Tail - 100 Years Quest - Special 01")
+    #title = title.replace("Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka: Familia Myth V", "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka V: Houjou no Megami-hen")
     title = title.replace("NieR:Automata Ver1.1a Part 2", "NieR Automata Ver1_1a Season 2")
     title = title.replace(" (CA)", "")
     title = title.replace(" (JA)", "")
     title = title.replace(" (Japanese Audio)", " (JA)")
     title = title.replace(" (Chinese Audio)", " (CA)")
     title = title.replace(" (Multi)", "")
-    title = title.replace("Tian Guan Ci Fu Di Er Ji", "Heaven Official's Blessing S2")
+    #title = title.replace("Tian Guan Ci Fu Di Er Ji", "Heaven Official's Blessing S2")
     title = title.replace("(AAC 2.0) ", "")
     ext = ".mkv"
-    title = title + ext
+    title = titlef + ext
     return title
 
 def trim_titlez(title: str):
@@ -50,7 +62,7 @@ def multi_sub(title: str):
     return subtitle
 
 def parse():
-    a = feedparser.parse("https://www.siftrss.com/f/pN3NDyNaay7")
+    a = feedparser.parse("https://www.erai-raws.info/episodes/feed/?res=1080p&type=magnet&token=9a36245ec6b955dc8686442095baabe5")
     ny = feedparser.parse("https://www.siftrss.com/f/xg5xjGXvlP")
     b = a["entries"]
     
