@@ -79,14 +79,7 @@ async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, main
             x = await app.send_document(
                 kayo_id,
                 file,
-                file_name=filed,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    filed,
-                    r,
-                    c_time,
-                    ttl
-                )
+                file_name=filed
             )
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
@@ -220,14 +213,7 @@ async def upload_video720p(msg: Message, title, tito, file, id, tit, name, ttl, 
             x = await app.send_document(
                 kayo_id,
                 file,
-                file_name=filed,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    filed,
-                    r,
-                    c_time,
-                    ttl
-                )
+                file_name=filed
             )
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
@@ -352,14 +338,7 @@ async def upload_video1080p(msg: Message, title, tito, file, id, tit, name, ttl,
             x = await app.send_document(
                 kayo_id,
                 file,
-                file_name=filed,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    filed,
-                    r,
-                    c_time,
-                    ttl
-                )
+                file_name=filed
             )
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
