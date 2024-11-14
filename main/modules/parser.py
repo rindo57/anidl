@@ -80,7 +80,11 @@ def parse():
     for i in b:
         if "(ITA)" not in i['title']:
             item = {}
-            item['title'], item['entitle'] = trim_title(i['title']) if 'title' in i else ('', '')
+            title, entitle = trim_title(i.get('title', '')), i.get('entitle', '')
+
+# Update item accordingly
+            item['title'] = title
+            item['entitle'] = entitle
             item['subtitle'] = (i['erai_subtitles'])
             item['size'] = i['erai_size']   
             item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
