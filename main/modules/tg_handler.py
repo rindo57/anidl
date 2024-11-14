@@ -7,7 +7,7 @@ import aiofiles
 import sys
 from main.modules.compressor import compress_video, compress_video720p, compress_video1080p
 from pymediainfo import MediaInfo
-from main.modules.utils import episode_linker, get_duration, get_epnum, status_text, get_filesize, b64_to_str, str_to_b64, send_media_and_reply, get_durationx
+from main.modules.utils import episode_linker, get_duration, get_epnum, status_text, get_filesize, b64_to_str, str_to_b64, send_media_and_reply, get_durationx, extract_title‎
 
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
@@ -16,7 +16,7 @@ from main.modules.thumbnail import generate_thumbnail
 
 import os
 
-from main.modules.db import del_anime, save_uploads, is_fid_in_db, is_tit_in_db, save_480p, save_720p, save_1080p
+from main.modules.db import del_anime, save_uploads, is_fid_in_db, is_tit_in_db, save_480p, save_720p, save_1080p, del_progress
 
 from main.modules.downloader import downloader
 
@@ -231,7 +231,8 @@ async def start_uploading(data):
             else:
                 print("Failed to get audio language.")
             compressed = await compress_video(duration,main,tito)
-    
+            progtit = extract_title(tito)
+            await del_progress(progtit)
 
             if compressed == "None" or compressed == None:
 
@@ -242,7 +243,7 @@ async def start_uploading(data):
             else:
 
                 os.rename("out.mkv",fpath)
-  
+            await main.delete()
             print("Uploading --> ",name)
             video = await upload_video(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             print("480title: ", data["title"])
@@ -272,7 +273,8 @@ async def start_uploading(data):
             tito2 = f"[AniDL] {titlx2}"
             main2 = await app.send_message(KAYO_ID,titm2)
             compressed2 = await compress_video720p(duration,main2,tito2)
-    
+            progtit = extract_title(tito2)
+            await del_progress(progtit)
 
             if compressed2 == "None" or compressed2 == None:
 
@@ -283,7 +285,7 @@ async def start_uploading(data):
             else:
 
                 os.rename("out.mkv",fpath)
-  
+            await main.delete()
             print("Uploading --> ",name)
             video = await upload_video720p(msg2,title,tito2,fpath,id,tit,name,size,main2,subtitle,nyaasize,audio_language, )
             save_720p(data["title"])
@@ -301,7 +303,8 @@ async def start_uploading(data):
             main3 = await app.send_message(KAYO_ID,titm3)
             
             compressed3 = await compress_video1080p(duration,main3,tito3)
-    
+            progtit = extract_title(tito3)
+            await del_progress(progtit)
 
             if compressed3 == "None" or compressed3 == None:
 
@@ -312,7 +315,7 @@ async def start_uploading(data):
             else:
 
                 os.rename("out.mkv",fpath)
-  
+            await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
             save_1080p(data["title"])
@@ -400,7 +403,8 @@ async def start_uploading(data):
             else:
                 print("Failed to get audio language.")
             compressed = await compress_video720p(duration,main,tito)
-    
+            progtit = extract_title(tito)
+            await del_progress(progtit)
 
             if compressed == "None" or compressed == None:
 
@@ -411,7 +415,7 @@ async def start_uploading(data):
             else:
 
                 os.rename("out.mkv",fpath)
-  
+            await main.delete()
             print("Uploading --> ",name)
             video = await upload_video720p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             save_720p(data["title"])
@@ -427,7 +431,8 @@ async def start_uploading(data):
             main3 = await app.send_message(KAYO_ID,titm3)
             
             compressed = await compress_video1080p(duration,main3,tito3)
-    
+            progtit = extract_title(tito3)
+            await del_progress(progtit)
 
             if compressed == "None" or compressed == None:
 
@@ -438,7 +443,7 @@ async def start_uploading(data):
             else:
 
                 os.rename("out.mkv",fpath)
-  
+            await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
             save_1080p(data["title"])
@@ -525,7 +530,8 @@ async def start_uploading(data):
             else:
                 print("Failed to get audio language.")
             compressed = await compress_video1080p(duration,main,tito)
-    
+            progtit = extract_title(tito)
+            await del_progress(progtit)
 
             if compressed == "None" or compressed == None:
 
@@ -536,7 +542,7 @@ async def start_uploading(data):
             else:
 
                 os.rename("out.mkv",fpath)
-  
+            await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             save_1080p(data["title"])
