@@ -9,6 +9,8 @@ from string import ascii_letters, ascii_uppercase, digits
 from pyrogram.types import Message, MessageEntity
 from pyrogram.errors import FloodWait
 from base64 import standard_b64encode, standard_b64decode
+import re
+from main.modules.db import save_progress
 
 def str_to_b64(__str: str) -> str:
     str_bytes = __str.encode('ascii')
@@ -160,6 +162,25 @@ def tags_generator(title):
         x = x[:-1]
     return x
 
+def extract_format(file_name):
+    # Regular expression to capture the desired parts
+    pattern = r'\[(\w+ ~ \w+)\]\[(\d+p x\d+ \w+)\]\[(Dual-Audio ~ \w+)\]'
+
+    match = re.search(pattern, file_name)
+    if match:
+        # Construct the desired output format
+        return f"{match.group(2)} | {match.group(3)} | {match.group(1).split(' ~ ')[1]}"
+    return None
+
+def extract_title(file_name):
+    # Regular expression to capture the title
+    pattern = r'\[(\w+)\] (.+?) \['
+
+    match = re.search(pattern, file_name)
+    if match:
+        return match.group(2)  # Return the title part
+    return None
+    
 async def status_text(text):
     stat = """
 ⭐️ **Status :** {}
@@ -269,6 +290,7 @@ ETA: {}
             speed,
             ETA
         )
+       # await save_progress(sourcetext,status,
         return text
 
     elif enco == True:
@@ -309,6 +331,10 @@ ETA: {}
             str(speed),
             ETA
         )
+        titlez = extract_title(sourcetext)
+        engine="Kaguya"
+        status="Encoding"
+        speed=str(speed)
+        res=extract_format(sourcetext)
+        save_progress(titlez,status,engine,percent, speed, ETA,res)
         return text2
-
-
