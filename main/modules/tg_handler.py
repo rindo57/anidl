@@ -229,6 +229,7 @@ async def start_uploading(data):
                 print("Audio Track Language:", audio_language)
             else:
                 print("Failed to get audio language.")
+            pending_720p(data["title"])
             compressed = await compress_video(duration,main,tito)
             progtit = extract_title(tito)
             await del_progress(progtit)
@@ -246,7 +247,7 @@ async def start_uploading(data):
             print("Uploading --> ",name)
             video = await upload_video(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             print("480title: ", data["title"])
-            pending_720p(data["title"])
+            
             save_480p(data["title"])
    
             print(data["title"])
@@ -272,6 +273,7 @@ async def start_uploading(data):
             titm2 = f"**[AniDL] {titlx2}**"
             tito2 = f"[AniDL] {titlx2}"
             main2 = await app.send_message(KAYO_ID,titm2)
+            pending_1080p(data["title"])
             compressed2 = await compress_video720p(duration,main2,tito2)
             progtit = extract_title(tito2)
             await del_progress(progtit)
@@ -288,7 +290,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video720p(msg2,title,tito2,fpath,id,tit,name,size,main2,subtitle,nyaasize,audio_language)
-            pending_1080p(data["title"])
+            
             save_720p(data["title"])
             await asyncio.sleep(5)
 # 1080p 
@@ -302,7 +304,7 @@ async def start_uploading(data):
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
             main3 = await app.send_message(KAYO_ID,titm3)
-            
+            no_pending(data["title"])
             compressed3 = await compress_video1080p(duration,main3,tito3)
             progtit = extract_title(tito3)
             await del_progress(progtit)
@@ -319,7 +321,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
-            no_pending(data["title"])
+           
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
@@ -404,6 +406,7 @@ async def start_uploading(data):
                 print("Audio Track Language:", audio_language)
             else:
                 print("Failed to get audio language.")
+            pending_1080p(data["title"])
             compressed = await compress_video720p(duration,main,tito)
             progtit = extract_title(tito)
             await del_progress(progtit)
@@ -420,7 +423,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video720p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
-            pending_1080p(data["title"])
+           
             save_720p(data["title"])
 #1080p 
 
@@ -432,7 +435,7 @@ async def start_uploading(data):
             titm3 = f"**[AniDL] {titlx3}**"
             tito3 = f"[AniDL] {titlx3}"
             main3 = await app.send_message(KAYO_ID,titm3)
-            
+            no_pending(data["title"])
             compressed = await compress_video1080p(duration,main3,tito3)
             progtit = extract_title(tito3)
             await del_progress(progtit)
@@ -449,7 +452,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
-            np_pending(data["title"])
+            
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
@@ -533,6 +536,7 @@ async def start_uploading(data):
                 print("Audio Track Language:", audio_language)
             else:
                 print("Failed to get audio language.")
+            no_pending(data["title"])
             compressed = await compress_video1080p(duration,main,tito)
             progtit = extract_title(tito)
             await del_progress(progtit)
@@ -549,7 +553,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
-            no_pending(data["title"])
+            
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
