@@ -17,15 +17,7 @@ def trim_title(title: str):
         titlef = f"{titlef} [Erai-raws]"
         ext = ".mkv"
         title = titlef + ext
-    # Extract optional title part after '|'
-        extracted_part = match.group(2)
-    
-       # print("Cleaned Title:", cleaned_title)
-        if extracted_part:
-         #   print("Eng Title:", extracted_part)
-            return title, extracted_part
-        else:
-            return title
+        return title
     #title = title.rsplit(' ', 1)[0]
     
    
@@ -44,7 +36,17 @@ def trim_title(title: str):
     title = title.replace("(AAC 2.0) ", "")'''
     
    
+def trim_eng_title(title: str):
+    match = re.match(r'(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)(?=\s*\[)', title)
+    if match:
+    # Extract optional title part after '|'
+        extracted_part = match.group(2)
+        if extracted_part:
+         #   print("Eng Title:", extracted_part)
+            return extracted_part
 
+    
+   
 def trim_titlez(title: str):
     title = title.rsplit(' ', 1)[0]
     title = title.replace("[SubsPlease] ", "")
@@ -80,13 +82,11 @@ def parse():
     for i in b:
         if "(ITA)" not in i['title']:
             item = {}
-            title, entitle = trim_title(i.get('title', '')), i.get('entitle', '')
 
 # Update item accordingly
-            print("tit:", title)
-            print("en ", entitle)
-            item['title'] = title
-            item['entitle'] = entitle
+
+            item['title'] = trim_title(i['title'])
+            item['entitle'] = trim_eng_title(i['title']
             item['subtitle'] = (i['erai_subtitles'])
             item['size'] = i['erai_size']   
             item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
