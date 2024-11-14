@@ -7,10 +7,11 @@ mongo_client = MongoClient(MONGO_DB_URI)
 db = mongo_client.autoanime480p
 dbx = mongo_client["anidl"]
 filesdb = dbx["files"]
+dbz = mongo_client["progress"]
 animedb = db.animes
 uploadsdb = db.uploads
 user_data = db['users']
-
+progressdb=dbz["info"]
 async def present_user(user_id : int):
     found = user_data.find_one({'_id': user_id})
     return bool(found)
@@ -230,4 +231,25 @@ def save_size1080p(title, size1080p):
         {"$set": {"data.size1080p": size1080p}},
         upsert=True,
     )
+    return
+
+def save_progress(title,status,engine,percent, speed, ETA,res):
+    progressdb.update_one(
+        {
+            "name": title,
+        },
+        {"$set": {"status": f"{status} ⚡", "Engine": engine, "Precentage": f"{percent}%", "speed": speed, "ETA": ETA, "res": res}},
+        upsert=True,
+    )
+    return
+
+async def del_progress(title):
+    try:
+        result = await progressdb.delete_one({"name": title})
+        if result.deleted_count > 0:
+            print(f"Successfully deleted progress: {title}")
+        else:
+            print(f"No anime found with the progress: {title}")
+    except pymongo.errors.PyMongoError as e:
+        print(f"Error deleting progress: {e}")
     return
