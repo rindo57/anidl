@@ -76,18 +76,50 @@ def save_480p(name):
         {
             "name": name
         },
-        {"$set": {"data.480p": '01'}},
+        {"$set": {"data.uploaded": '480p'}},
         upsert=True,
     )
     return
 
+def pending_720p(name):
+    animexdb = db.animes
+    animexdb.update_one(
+        {
+            "name": name
+        },
+        {"$set": {"data.pending": '720p + 1080p'}},
+        upsert=True,
+    )
+    return
+
+def pending_1080p(name):
+    animexdb = db.animes
+    animexdb.update_one(
+        {
+            "name": name
+        },
+        {"$set": {"data.pending": '1080p'}},
+        upsert=True,
+    )
+    return
+
+def no_pending(name):
+    animexdb = db.animes
+    animexdb.update_one(
+        {
+            "name": name
+        },
+        {"$set": {"data.pending": '0'}},
+        upsert=True,
+    )
+    return
 def save_720p(name):
     animexdb = db.animes
     animexdb.update_one(
         {
             "name": name
         },
-        {"$set": {"data.480p": '012'}},
+        {"$set": {"data.uploaded": '480p + 720p'}},
         upsert=True,
     )
     return
