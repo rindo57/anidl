@@ -164,12 +164,15 @@ def tags_generator(title):
 
 def extract_format(file_name):
     # Regular expression to capture the desired parts
-    pattern = r'\[(\w+ ~ \w+)\]\[(\d+p x\d+ \w+)\]\[(Dual-Audio ~ \w+)\]'
-
-    match = re.search(pattern, file_name)
+    match = re.search(r'\[(\d+p.*?Bit)\]\[(.*?)\]\[(.*?)\]', file_name)
     if match:
-        # Construct the desired output format
-        return f"{match.group(2)} | {match.group(3)} | {match.group(1).split(' ~ ')[1]}"
+        quality = match.group(1)   # e.g., "720p x265 10Bit"
+        codec = match.group(2)     # e.g., "Opus"
+        source = match.group(3)    # e.g., "Erai-raws"
+        
+        # Format the extracted information
+        format_info = f"{quality} | {codec} | {source}"
+        return format_info
     return None
 
 def extract_title(file_name):
