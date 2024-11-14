@@ -76,12 +76,18 @@ async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, main
             gay_id = 1159872623
             upid = int(main.id)
             print(upid)
-            x = await app.edit_message_media(
-                chat_id=kayo_id,
-                message_id=upid,
-                media=InputMediaDocument(file),
-                file_name=filed
+            x = await app.send_document(
+                kayo_id,
+                file,
+                file_name=filed,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    filed,
+                    r,
+                    c_time,
+                    ttl
             )
+           
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             print("hash1:", hash)
@@ -211,11 +217,16 @@ async def upload_video720p(msg: Message, title, tito, file, id, tit, name, ttl, 
             gay_id = 1159872623
             upid = int(main.id)
             print(upid)
-            x = await app.edit_message_media(
-                chat_id=kayo_id,
-                message_id=upid,
-                media=InputMediaDocument(file),
-                file_name=filed
+            x = await app.send_document(
+                kayo_id,
+                file,
+                file_name=filed,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    filed,
+                    r,
+                    c_time,
+                    ttl
             )
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
@@ -337,11 +348,16 @@ async def upload_video1080p(msg: Message, title, tito, file, id, tit, name, ttl,
             gay_id = 1159872623
             upid = int(main.id)
             print(upid)
-            x = await app.edit_message_media(
-                chat_id=kayo_id,
-                message_id=upid,
-                media=InputMediaDocument(file),
-                file_name=filed
+            x = await app.send_document(
+                kayo_id,
+                file,
+                file_name=filed,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    filed,
+                    r,
+                    c_time,
+                    ttl
             )
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
