@@ -15,7 +15,7 @@ from main.modules.thumbnail import generate_thumbnail
 
 import os
 
-from main.modules.db import del_anime, save_uploads, is_fid_in_db, is_tit_in_db, save_480p, save_720p, save_1080p, del_progress, pending_720p, pending_1080p
+from main.modules.db import del_anime, save_uploads, is_fid_in_db, is_tit_in_db, save_480p, save_720p, save_1080p, del_progress, pending_720p, pending_1080p, no_pending
 
 from main.modules.downloader import downloader
 
@@ -246,7 +246,7 @@ async def start_uploading(data):
             print("Uploading --> ",name)
             video = await upload_video(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             print("480title: ", data["title"])
-            pending_720p(data["title'])
+            pending_720p(data["title"])
             save_480p(data["title"])
    
             print(data["title"])
@@ -288,7 +288,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video720p(msg2,title,tito2,fpath,id,tit,name,size,main2,subtitle,nyaasize,audio_language)
-            pending_720p(data["title'])
+            pending_1080p(data["title"])
             save_720p(data["title"])
             await asyncio.sleep(5)
 # 1080p 
@@ -319,6 +319,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
+            no_pending(data["title"])
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
@@ -419,6 +420,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video720p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
+            pending_1080p(data["title"])
             save_720p(data["title"])
 #1080p 
 
@@ -447,6 +449,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg3,title,tito3,fpath,id,entitle,name,size,main3,subtitle,nyaasize,audio_language)
+            np_pending(data["title"])
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
@@ -546,6 +549,7 @@ async def start_uploading(data):
             await main.delete()
             print("Uploading --> ",name)
             video = await upload_video1080p(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
+            no_pending(data["title"])
             save_1080p(data["title"])
             try:
                 os.remove("video.mkv")
