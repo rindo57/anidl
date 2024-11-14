@@ -95,7 +95,8 @@ def parse():
             item['subtitle'] = (i['erai_subtitles'])
             item['size'] = i['erai_size']   
             item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
-            item['480p'] = '0'
+            item['uploaded'] = '0'
+            item['pending'] = '480p + 720p + 1080p'
             data.append(item)
             data.reverse()
     for i in c:
@@ -105,7 +106,8 @@ def parse():
         item['subtitle'] = "us"
         item['size'] = i['nyaa_size']   
         item['link'] = "magnet:?xt=urn:btih:" + i['nyaa_infohash']
-        item['480p'] = '0'
+        item['uploaded'] = '0'
+        item['pending'] = '480p + 720p + 1080p'
         data.append(item)
         data.reverse()
     return data
