@@ -28,7 +28,7 @@ from pyrogram import Client, filters, enums
 
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, InputMediaAudio, InputMediaDocument
 
-from .modules.progress import progress_for_pyrogram
+from main.modules.progress import progress_for_pyrogram
 
 from os.path import isfile
 
