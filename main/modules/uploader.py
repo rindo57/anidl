@@ -74,13 +74,14 @@ async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, main
 
             kayo_id = -1001895203720
             gay_id = 1159872623
-            upid = int(main.id)
-            print(upid)
+            
+
             x = await app.send_document(
                 kayo_id,
                 file,
                 file_name=filed
             )
+            upid = int(x.id)
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             print("hash1:", hash)
@@ -208,13 +209,13 @@ async def upload_video720p(msg: Message, title, tito, file, id, tit, name, ttl, 
 
             kayo_id = -1001895203720
             gay_id = 1159872623
-            upid = int(main.id)
-            print(upid)
+          
             x = await app.send_document(
                 kayo_id,
                 file,
                 file_name=filed
             )
+            upid = int(x.id)
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             
@@ -333,13 +334,13 @@ async def upload_video1080p(msg: Message, title, tito, file, id, tit, name, ttl,
 
             kayo_id = -1001895203720
             gay_id = 1159872623
-            upid = int(main.id)
-            print(upid)
+           
             x = await app.send_document(
                 kayo_id,
                 file,
                 file_name=filed
             )
+            upid = int(x.id)
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             
