@@ -23,6 +23,9 @@ def trim_title(title: str):
         print("Cleaned Title:", cleaned_title)
         if extracted_part:
             print("Eng Title:", extracted_part)
+            return title, extracted_part
+        else:
+            return title, None
     #title = title.rsplit(' ', 1)[0]
     
    
@@ -40,7 +43,7 @@ def trim_title(title: str):
     #title = title.replace("Tian Guan Ci Fu Di Er Ji", "Heaven Official's Blessing S2")
     title = title.replace("(AAC 2.0) ", "")'''
     
-    return title, extracted_part
+   
 
 def trim_titlez(title: str):
     title = title.rsplit(' ', 1)[0]
