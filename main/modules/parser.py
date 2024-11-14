@@ -7,13 +7,18 @@ from main import queue
 from main.inline import button1
 import re
 def trim_title(title: str):
-    match = re.match(r'(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)(?=\s*\[)', title)
+    title = title.replace("(Multi) ", "")
+    match = re.match(r'\[Magnet\]\s*(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)\s*(\((?:Multi|Repack|Chinese Audio)\))?', title)
     if match:
         main_title = match.group(1)
         episode_number = match.group(3)
-        cleaned_title = f"{main_title} - {episode_number}"
-        titlef = cleaned_title.replace("[Magnet] ", "")
-        print(titlef)
+        optional_tag = match.group(4) if match.group(4) else ""
+        
+        # Construct the cleaned title with optional tag
+        cleaned_title = f"{main_title} - {episode_number} {optional_tag}".strip()
+        titlef = cleaned_title.replace("[Magnet] ", "").strip()
+        
+        # Append "[Erai-raws]" and file extension
         titlef = f"{titlef} [Erai-raws]"
         ext = ".mkv"
         title = titlef + ext
