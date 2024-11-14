@@ -17,7 +17,7 @@ async def progress_for_pyrogram(
 
         try:
             percentage = round(percentage/100,2)
-            await message.edit_caption(
+            await message.edit_text(
                 caption=get_progress_text(
                     ud_type,
                     "Uploading",
