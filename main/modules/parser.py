@@ -86,7 +86,7 @@ def parse():
 # Update item accordingly
 
             item['title'] = trim_title(i['title'])
-            item['entitle'] = trim_eng_title(i['title']
+            item['entitle'] = trim_eng_title(i['title'])
             item['subtitle'] = (i['erai_subtitles'])
             item['size'] = i['erai_size']   
             item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
