@@ -28,7 +28,7 @@ from pyrogram import Client, filters, enums
 
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, InputMediaAudio, InputMediaDocument
 
-from main.modules.progress import progress_for_pyrogram
+from .modules.progress import progress_for_pyrogram
 
 from os.path import isfile
 
@@ -48,7 +48,7 @@ def extract_source(filename):
     
 
 
-async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info):
+async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, subtitle, nyaasize, audio_info):
 
     
     try:
@@ -184,8 +184,7 @@ async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, main
 
     return x.id
 
-async def upload_video720p(msg: Message, title, tito, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info):
-
+async def upload_video720p(msg: Message, title, tito, file, id, tit, name, ttl, subtitle, nyaasize, audio_info):
     try:
         fuk = isfile(file)
         if fuk:
@@ -309,7 +308,7 @@ async def upload_video720p(msg: Message, title, tito, file, id, tit, name, ttl, 
 
         pass
 
-async def upload_video1080p(msg: Message, title, tito, file, id, tit, name, ttl, main, subtitle, nyaasize, audio_info):
+async def upload_video1080p(msg: Message, title, tito, file, id, tit, name, ttl, subtitle, nyaasize, audio_info):
 
     try:
         fuk = isfile(file)
