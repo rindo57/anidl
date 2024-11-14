@@ -129,7 +129,7 @@ def save_1080p(name):
         {
             "name": name
         },
-        {"$set": {"data.480p": '0123'}},
+        {"$set": {"data.save_1080p": '480p + 720p + 1080p'}},
         upsert=True,
     )
     return
