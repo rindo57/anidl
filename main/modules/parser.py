@@ -20,9 +20,9 @@ def trim_title(title: str):
     # Extract optional title part after '|'
         extracted_part = match.group(2)
     
-        print("Cleaned Title:", cleaned_title)
+       # print("Cleaned Title:", cleaned_title)
         if extracted_part:
-            print("Eng Title:", extracted_part)
+         #   print("Eng Title:", extracted_part)
             return title, extracted_part
         else:
             return title
@@ -83,6 +83,8 @@ def parse():
             title, entitle = trim_title(i.get('title', '')), i.get('entitle', '')
 
 # Update item accordingly
+            print(title)
+            print(entitle)
             item['title'] = title
             item['entitle'] = entitle
             item['subtitle'] = (i['erai_subtitles'])
