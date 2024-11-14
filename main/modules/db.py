@@ -8,6 +8,7 @@ db = mongo_client.autoanime480p
 dbx = mongo_client["anidl"]
 filesdb = dbx["files"]
 dbz = mongo_client["progress"]
+pdb=dbz["pending"]
 animedb = db.animes
 uploadsdb = db.uploads
 user_data = db['users']
@@ -28,12 +29,15 @@ async def get_animesdb():
 
 async def save_animedb(name,data): 
     data = await animedb.insert_one({"name": name, "data": data})
+    await pdb.insert_one({"name": name, "data": data})
+    
     return
   
 async def del_anime(name): 
     try:
         animesdb = db.animes
         result = await animesdb.delete_one({"name": name})
+        await pdb.delete_one({"name": name})
         if result.deleted_count > 0:
             print(f"Successfully deleted anime: {name}")
         else:
@@ -79,11 +83,19 @@ def save_480p(name):
         {"$set": {"data.uploaded": '480p'}},
         upsert=True,
     )
+    
     return
 
 def pending_720p(name):
     animexdb = db.animes
     animexdb.update_one(
+        {
+            "name": name
+        },
+        {"$set": {"data.pending": '720p + 1080p'}},
+        upsert=True,
+    )
+    pdb.update_one(
         {
             "name": name
         },
@@ -101,11 +113,26 @@ def pending_1080p(name):
         {"$set": {"data.pending": '1080p'}},
         upsert=True,
     )
+    pdb.update_one(
+        {
+            "name": name
+        },
+        {"$set": {"data.pending": '1080p'}},
+        upsert=True,
+    )
+    
     return
 
 def no_pending(name):
     animexdb = db.animes
     animexdb.update_one(
+        {
+            "name": name
+        },
+        {"$set": {"data.pending": '0'}},
+        upsert=True,
+    )
+    pdb.update_one(
         {
             "name": name
         },
