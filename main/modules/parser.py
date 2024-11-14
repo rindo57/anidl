@@ -25,7 +25,7 @@ def trim_title(title: str):
             print("Eng Title:", extracted_part)
             return title, extracted_part
         else:
-            return title, None
+            return title
     #title = title.rsplit(' ', 1)[0]
     
    
@@ -80,7 +80,7 @@ def parse():
     for i in b:
         if "(ITA)" not in i['title']:
             item = {}
-            item['title'], item["entitle"] = trim_title(i['title'])
+            item['title'], item['entitle'] = trim_title(i['title']) if 'title' in i else ('', '')
             item['subtitle'] = (i['erai_subtitles'])
             item['size'] = i['erai_size']   
             item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
