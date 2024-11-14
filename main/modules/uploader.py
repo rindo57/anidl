@@ -87,7 +87,6 @@ async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, main
                     c_time,
                     ttl
             )
-           
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             print("hash1:", hash)
