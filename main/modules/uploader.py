@@ -48,7 +48,7 @@ def extract_source(filename):
     
 
 
-async def upload_video(msg: Message, title, tito, file, id, tit, name, ttl, subtitle, nyaasize, audio_info):
+async def upload_video(msg: Message, title, tito, file, tit, name, ttl, subtitle, nyaasize, audio_info):
 
     
     try:
