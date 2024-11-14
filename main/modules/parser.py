@@ -12,7 +12,11 @@ def trim_title(title: str):
         main_title = match.group(1)
         episode_number = match.group(3)
         cleaned_title = f"{main_title} - {episode_number}"
-    
+        titlef = cleaned_title.replace("[Magnet] ", "")
+        print(titlef)
+        titlef = f"{titlef} [Erai-raws]"
+        ext = ".mkv"
+        title = titlef + ext
     # Extract optional title part after '|'
         extracted_part = match.group(2)
     
@@ -20,10 +24,10 @@ def trim_title(title: str):
         if extracted_part:
             print("Eng Title:", extracted_part)
     #title = title.rsplit(' ', 1)[0]
-    titlef = cleaned_title.replace("[Magnet] ", "")
-    print(titlef)
-    titlef = f"{titlef} [Erai-raws]"
-    #title = title.replace(": Ouji no Kikan", " S2")
+    
+   
+    
+    '''#title = title.replace(": Ouji no Kikan", " S2")
    # title = title.replace("Saikyou no Shienshoku -Wajutsushi- de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru", "Saikyou no Shien-shoku [Wajutsushi] de Aru Ore wa Sekai Saikyou Clan wo Shitagaeru")
     #title = title.replace("Fairy Tail - 100 Years Quest - S01", "Fairy Tail - 100 Years Quest - Special 01")
     #title = title.replace("Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka: Familia Myth V", "Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka V: Houjou no Megami-hen")
@@ -34,9 +38,8 @@ def trim_title(title: str):
     title = title.replace(" (Chinese Audio)", " (CA)")
     title = title.replace(" (Multi)", "")
     #title = title.replace("Tian Guan Ci Fu Di Er Ji", "Heaven Official's Blessing S2")
-    title = title.replace("(AAC 2.0) ", "")
-    ext = ".mkv"
-    title = titlef + ext
+    title = title.replace("(AAC 2.0) ", "")'''
+    
     return title, extracted_part
 
 def trim_titlez(title: str):
