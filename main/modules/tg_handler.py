@@ -7,9 +7,9 @@ import aiofiles
 import sys
 from main.modules.compressor import compress_video, compress_video720p, compress_video1080p
 from pymediainfo import MediaInfo
-from main.modules.utils import episode_linker, get_duration, get_epnum, status_text, get_filesize, b64_to_str, str_to_b64, send_media_and_reply, get_durationx, extract_title‎
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from main.modules.utils import episode_linker, get_duration, get_epnum, status_text, get_filesize, b64_to_str, str_to_b64, send_media_and_reply, get_durationx, extract_title
 from main.modules.uploader import upload_video, upload_video720p, upload_video1080p
 from main.modules.thumbnail import generate_thumbnail
 
