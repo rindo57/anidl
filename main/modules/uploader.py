@@ -82,6 +82,7 @@ async def upload_video(msg: Message, title, tito, file, tit, name, ttl, subtitle
                 file_name=filed
             )
             upid = int(x.id)
+            print(upid)
             await asyncio.sleep(3)
             hash = "".join([random.choice(ascii_letters + digits) for n in range(50)])
             print("hash1:", hash)
@@ -103,6 +104,7 @@ async def upload_video(msg: Message, title, tito, file, tit, name, ttl, subtitle
             responsez = requests.post(cfurl, headers=headers, json=dataz)
             html_content = responsez.json()['solution']['response']
             soup = BeautifulSoup(html_content, 'html.parser')"""
+            print("ouo start")
             ourl =  f"http://ouo.io/api/jezWr0hG?s={ddlurl}"
             resp = requests.get(ourl)
             extracted_url = resp.text
