@@ -83,8 +83,8 @@ def parse():
             title, entitle = trim_title(i.get('title', '')), i.get('entitle', '')
 
 # Update item accordingly
-            print(title)
-            print(entitle)
+            print("tit:", title)
+            print("en ", entitle)
             item['title'] = title
             item['entitle'] = entitle
             item['subtitle'] = (i['erai_subtitles'])
