@@ -15,7 +15,7 @@ from main.modules.thumbnail import generate_thumbnail
 
 import os
 
-from main.modules.db import del_anime, save_uploads, is_fid_in_db, is_tit_in_db, save_480p, save_720p, save_1080p, del_progress
+from main.modules.db import del_anime, save_uploads, is_fid_in_db, is_tit_in_db, save_480p, save_720p, save_1080p, del_progress, pending_720p, pending_1080p
 
 from main.modules.downloader import downloader
 
@@ -158,7 +158,7 @@ def get_audio_language(video_path):
 async def start_uploading(data):
 
     try:
-        if data["480p"]=='0':
+        if data["uploaded"]=='0':
             title = data["title"]
             entitle = data["entitle"]
             dbtit = data["title"]
@@ -246,6 +246,7 @@ async def start_uploading(data):
             print("Uploading --> ",name)
             video = await upload_video(msg,title,tito,fpath,id,entitle,name,size,main,subtitle,nyaasize,audio_language)
             print("480title: ", data["title"])
+            pending_720p(data["title'])
             save_480p(data["title"])
    
             print(data["title"])
@@ -286,7 +287,8 @@ async def start_uploading(data):
                 os.rename("out.mkv",fpath)
             await main.delete()
             print("Uploading --> ",name)
-            video = await upload_video720p(msg2,title,tito2,fpath,id,tit,name,size,main2,subtitle,nyaasize,audio_language, )
+            video = await upload_video720p(msg2,title,tito2,fpath,id,tit,name,size,main2,subtitle,nyaasize,audio_language)
+            pending_720p(data["title'])
             save_720p(data["title"])
             await asyncio.sleep(5)
 # 1080p 
@@ -327,7 +329,7 @@ async def start_uploading(data):
                 pass  
 
         
-        elif data["480p"]=='01':
+        elif data["uploaded"]=='480p':
             title = data["title"]
             entitle = data["entitle"]
             dbtit = data["title"]
@@ -454,7 +456,7 @@ async def start_uploading(data):
             except:
                 pass 
         #1080p
-        elif data["480p"]=='012':
+        elif data["uploaded"]=='480p + 720p':
             title = data["title"]
             entitle = data["entitle"]
             dbtit = data["title"]
