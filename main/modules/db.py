@@ -29,7 +29,7 @@ async def get_animesdb():
 
 async def save_animedb(name,data): 
     data = await animedb.insert_one({"name": name, "data": data})
-    await pdb.insert_one({"name": name, "data": data})
+   # await pdb.insert_one({"name": name, "data": data})
     
     return
   
@@ -37,7 +37,7 @@ async def del_anime(name):
     try:
         animesdb = db.animes
         result = await animesdb.delete_one({"name": name})
-        await pdb.delete_one({"name": name})
+        #await pdb.delete_one({"name": name})
         if result.deleted_count > 0:
             print(f"Successfully deleted anime: {name}")
         else:
@@ -95,7 +95,7 @@ def pending_720p(name):
         {"$set": {"data.pending": '720p + 1080p'}},
         upsert=True,
     )
-    pdb.update_one(
+   # pdb.update_one(
         {
             "name": name
         },
@@ -113,7 +113,7 @@ def pending_1080p(name):
         {"$set": {"data.pending": '1080p'}},
         upsert=True,
     )
-    pdb.update_one(
+   # pdb.update_one(
         {
             "name": name
         },
@@ -132,7 +132,7 @@ def no_pending(name):
         {"$set": {"data.pending": '0'}},
         upsert=True,
     )
-    pdb.update_one(
+    #pdb.update_one(
         {
             "name": name
         },
