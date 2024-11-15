@@ -95,13 +95,13 @@ def pending_720p(name):
         {"$set": {"data.pending": '720p + 1080p'}},
         upsert=True,
     )
-   # pdb.update_one(
+   '''pdb.update_one(
         {
             "name": name
         },
         {"$set": {"data.pending": '720p + 1080p'}},
         upsert=True,
-    )
+    )'''
     return
 
 def pending_1080p(name):
@@ -113,13 +113,13 @@ def pending_1080p(name):
         {"$set": {"data.pending": '1080p'}},
         upsert=True,
     )
-   # pdb.update_one(
+   '''pdb.update_one(
         {
             "name": name
         },
         {"$set": {"data.pending": '1080p'}},
         upsert=True,
-    )
+    )'''
     
     return
 
@@ -132,13 +132,13 @@ def no_pending(name):
         {"$set": {"data.pending": '0'}},
         upsert=True,
     )
-    #pdb.update_one(
+    '''pdb.update_one(
         {
             "name": name
         },
         {"$set": {"data.pending": '0'}},
         upsert=True,
-    )
+    )'''
     return
 def save_720p(name):
     animexdb = db.animes
