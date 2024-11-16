@@ -129,11 +129,11 @@ async def upload_video(msg: Message, title, tito, file, tit, name, ttl, subtitle
                 caption=gcaption
             )
             await asyncio.sleep(3)
-            await app.edit_message_reply_markup(
+            """await app.edit_message_reply_markup(
                 chat_id=kayo_id,
                 message_id=upid,
                 reply_markup=dl_markup
-            )
+            )"""
             anidl_id=-1001234112068
             xurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             anidlcap = f"<b>{anidltitle}</b>\n<i>({tit})</i>\n<blockquote><b><a href={flink}>🗂️ [Web ~ {source}][480p x265 10Bit CRF@23][JAP ~ Opus][Multiple Subs ~ {subtitle}]</a></b> || <code>{size480p}</code></blockquote>\n#airing #single_audio #multi_subs"
@@ -258,11 +258,11 @@ async def upload_video720p(msg: Message, title, tito, file, tit, name, ttl, subt
                 caption=gcaption
             )
             await asyncio.sleep(3)
-            await app.edit_message_reply_markup(
+           """ await app.edit_message_reply_markup(
                 chat_id=kayo_id,
                 message_id=upid,
                 reply_markup=dl_markup
-            )
+            )"""
             anidl_id=-1001234112068
             print("check: ", title)
             code480p = await get_link480p(title)
@@ -375,11 +375,11 @@ async def upload_video1080p(msg: Message, title, tito, file, tit, name, ttl, sub
                 caption=gcaption
             )
             await asyncio.sleep(3)
-            await app.edit_message_reply_markup(
+            """await app.edit_message_reply_markup(
                 chat_id=kayo_id,
                 message_id=upid,
                 reply_markup=dl_markup
-            )
+            )"""
             anidl_id=-1001234112068
             code480p = await get_link480p(title)
             print(code480p)
