@@ -565,7 +565,7 @@ async def start_uploading(data):
             print("All format uploaded.")
             print("del " , name)
             await del_anime(name)
-        else:
+        elif data["uploaded"]=='480p + 720p + 1080p':
             name = data["title"]
             print("All format uploaded.")
             print("del " , name)
