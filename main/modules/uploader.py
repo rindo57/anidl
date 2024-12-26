@@ -69,6 +69,8 @@ async def upload_video(msg: Message, title, tito, file, tit, name, ttl, subtitle
             anidltitle = filed.replace("[AniDL] ", "")
             anidltitle = anidltitle.replace("[Web][480p x265 10Bit][Opus][Erai-raws].mkv", "")
             anidltitle = anidltitle.replace("[Web][480p x265 10Bit][Opus][SubsPlease].mkv", "")
+            anidltitle = anidltitle.replace("/", "_")
+            
             fukpath = "downloads/" + filed
             caption = f"{filed}"
 
@@ -201,7 +203,7 @@ async def upload_video720p(msg: Message, title, tito, file, tit, name, ttl, subt
             anidltitle = filed.replace("[AniDL] ", "")
             anidltitle = anidltitle.replace("[Web][720p x265 10Bit][Opus][Erai-raws].mkv", "")
             anidltitle = anidltitle.replace("[Web][720p x265 10Bit][Opus][SubsPlease].mkv", "")
-            
+            anidltitle = anidltitle.replace("/", "_")
             fukpath = "downloads/" + filed
             caption = f"{filed}"
 
@@ -326,7 +328,8 @@ async def upload_video1080p(msg: Message, title, tito, file, tit, name, ttl, sub
             anidltitle = filed.replace("[AniDL] ", "")
             anidltitle = anidltitle.replace("[Web][1080p x265 10Bit][AAC][Erai-raws].mkv", "")
             anidltitle = anidltitle.replace("[Web][1080p x265 10Bit][AAC][Subsplease].mkv", "")
-           # filed = filed.replace("[1080p Web-DL]", "[Web][1080p x265 10Bit][AAC][Erai-raws]")
+            anidltitle = anidltitle.replace("/", "_")
+            # filed = filed.replace("[1080p Web-DL]", "[Web][1080p x265 10Bit][AAC][Erai-raws]")
             fukpath = "downloads/" + filed
             caption = f"{filed}"
 
