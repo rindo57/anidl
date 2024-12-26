@@ -224,13 +224,17 @@ async def upload_video720p(msg: Message, title, tito, file, tit, name, ttl, subt
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
-            """cfurl = "http://localhost:8191/v1"
+            cfurl = "http://localhost:8191/v1"
             headers = {"Content-Type": "application/json"}
             dataz = {
                 "cmd": "request.get",
-                "url": f"http://ouo.io/api/jezWr0hG?s={ddlurl}",
+                "url": f"http://ouo.press/api/jezWr0hG?s={ddlurl}",
                 "maxTimeout": 60000
-            }"""
+            }
+            responsez = requests.post(cfurl, headers=headers, json=dataz)
+            html_content = responsez.json()['solution']['response']
+            soup = BeautifulSoup(html_content, 'html.parser')
+            extracted_url = soup.body.text.strip()
             ourl = f"https://nanolinks.in/st?api=7da8202d8af0c8d76c024a6be6badadaabe66a01&url={ddlurl}"
             responsez = requests.get(ourl)
             """html_content = responsez.json()['solution']['response']
@@ -345,9 +349,20 @@ async def upload_video1080p(msg: Message, title, tito, file, tit, name, ttl, sub
             print(hash)
             ddlurl = f"https://anidl.ddlserverv1.me.in/beta/{hash}"
             gcaption = f"`📺 {filed}`\n\n`🔗 EP - {ep_num}:  https://anidl.ddlserverv1.me.in/beta/{hash}`" + "\n\n" + f"🔠 __{tit}__" + "\n" + "\n" + f"📝 `{subtitle}`"
-            ourl =  f"https://nanolinks.in/st?api=7da8202d8af0c8d76c024a6be6badadaabe66a01&url={ddlurl}"
+            cfurl = "http://localhost:8191/v1"
+            headers = {"Content-Type": "application/json"}
+            dataz = {
+                "cmd": "request.get",
+                "url": f"http://ouo.press/api/jezWr0hG?s={ddlurl}",
+                "maxTimeout": 60000
+            }
+            responsez = requests.post(cfurl, headers=headers, json=dataz)
+            html_content = responsez.json()['solution']['response']
+            soup = BeautifulSoup(html_content, 'html.parser')
+            extracted_url = soup.body.text.strip()
+            """ourl =  f"https://nanolinks.in/st?api=7da8202d8af0c8d76c024a6be6badadaabe66a01&url={ddlurl}"
             resp = requests.get(ourl)
-            extracted_url = resp.text
+            extracted_url = resp.text"""
             print(extracted_url)
             da_url = "https://da.gd/"
             shorten_url = f"{da_url}shorten"
