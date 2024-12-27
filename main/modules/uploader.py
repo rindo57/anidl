@@ -363,9 +363,11 @@ async def upload_video1080p(msg: Message, title, tito, file, tit, name, ttl, sub
             html_content = responsez.json()['solution']['response']
             soup = BeautifulSoup(html_content, 'html.parser')
             extracted_url = soup.body.text.strip()
-           """ ourl =  f"https://nanolinks.in/st?api=7da8202d8af0c8d76c024a6be6badadaabe66a01&url={ddlurl}"
+           """ 
+            ourl =  f"https://nanolinks.in/st?api=7da8202d8af0c8d76c024a6be6badadaabe66a01&url={ddlurl}"
             resp = requests.get(ourl)
-            extracted_url = resp.text"""
+            extracted_url = resp.text
+            """
             print(extracted_url)
             da_url = "https://da.gd/"
             shorten_url = f"{da_url}shorten"
