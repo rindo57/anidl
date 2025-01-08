@@ -18,3 +18,4 @@ libtorrent==2.0.9
 pyromod==1.5
 psutil
 parse-torrent-name
+anitopy
