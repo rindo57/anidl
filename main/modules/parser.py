@@ -6,6 +6,8 @@ import feedparser
 from main import queue
 from main.inline import button1
 import re
+import anitopy
+import requests
 def trim_title(title: str):
     title = title.replace("(Multi) ", "")
     match = re.match(r'\[Magnet\]\s*(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)\s*(\((?:Multi|Repack|Chinese Audio)\))?', title)
@@ -39,8 +41,48 @@ def trim_title(title: str):
     title = title.replace(" (Multi)", "")
     #title = title.replace("Tian Guan Ci Fu Di Er Ji", "Heaven Official's Blessing S2")
     title = title.replace("(AAC 2.0) ", "")'''
+
+def fetch_english_title(japanese_title):
+    query = """
+    query ($search: String) {
+      Media(search: $search) {
+        title {
+          english
+          romaji
+        }
+      }
+    }
+    """
     
-   
+    variables = {"search": japanese_title}
+    
+    response = requests.post(
+        'https://graphql.anilist.co',
+        json={'query': query, 'variables': variables},
+    )
+
+    if response.status_code == 200:
+        data = response.json()
+        title = data['data']['Media']
+        if title:
+            return title['title']['english'] or title['title']['romaji']
+        else:
+            return None
+    else:
+        return None
+
+def get_eng_title(title: str):
+    filename_content = anitopy.parse(title)
+    print(filename_content)
+    if "anime_title" in filename_content:
+        japanese_title = filename_content["anime_title"]
+    if "anime_season" in filename_content:
+        japanese_title += " Season " + str(filename_content["anime_season"])
+        
+        print(japanese_title)
+    english_title = fetch_english_title(japanese_title)
+    return english_title
+    
 def trim_eng_title(title: str):
     match = re.match(r'(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)(?=\s*\[)', title)
     if match:
@@ -91,7 +133,7 @@ def parse():
 # Update item accordingly
 
             item['title'] = trim_title(i['title'])
-            item['entitle'] = trim_eng_title(i['title'])
+            item['entitle'] = get_eng_title(i['title'])
             item['subtitle'] = (i['erai_subtitles'])
             item['size'] = i['erai_size']   
             item['link'] = "magnet:?xt=urn:btih:" + i['erai_infohash']
