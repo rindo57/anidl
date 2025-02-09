@@ -11,6 +11,7 @@ import requests
 def trim_title(title: str):
     title = title.replace("(Multi) ", "")
     title = title.replace("Dr.", "Dr")
+    title = title.replace("Fate/Strange", "Fate_Strange")
     match = re.match(r'\[Magnet\]\s*(.*?)\s*(?:\|\s*(.*?))?\s*-\s*(\d+)\s*(\((?:Multi|Repack|Chinese Audio)\))?', title)
     if match:
         main_title = match.group(1)
